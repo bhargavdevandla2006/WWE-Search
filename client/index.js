@@ -17,7 +17,7 @@ form.addEventListener('submit', async (event) => {
 
 
     try {
-        const response = await fetch(`http://localhost:4000/players/${input.value.toLowerCase()}`);
+        const response = await fetch(`https://wwe-search.onrender.com/players/${input.value.toLowerCase()}`);
         // if (!response.ok) throw new Error("Player not found");
 
         const player = await response.json();
@@ -71,7 +71,7 @@ addPlayers.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     try {
-        const response = await fetch("http://localhost:4000/player", {
+        const response = await fetch("https://wwe-search.onrender.com/player", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
