@@ -1,6 +1,9 @@
 const express = require('express');
 const cors = require('cors');
 const connectionDb = require('./db');
+const dotenv = require('dotenv')
+
+dotenv.config()
 
 const app = express();
 app.use(cors());
@@ -51,7 +54,7 @@ app.post('/player', async (req, res) => {
 const startServer = async () => {
   db = await connectionDb();
   console.log('Connected to DB');
-  app.listen(4000, () => console.log('Server running on http://localhost:4000'));
+  app.listen(process.env.PORT || 4000, () => console.log('Server running on http://localhost:4000'));
 };
 
 startServer()
